@@ -1,37 +1,73 @@
 # CC Studio
 
-CC Studio is a local desktop workspace for beginners using Claude Code.
+A local desktop workspace for beginners to use Claude Code with guided tasks, task-scoped snapshots, and visual diff review.
 
-It wraps a Claude Code terminal session in a simple Electron UI with:
+## What It Is
+
+CC Studio wraps a local Claude Code terminal session in a simple desktop UI.
+
+Instead of asking beginners to learn the CLI first, it gives them a cleaner entry point:
 
 - guided task templates
-- slash command shortcuts
-- project-level `CLAUDE.md` editing
-- task-scoped snapshots and rollback
-- visual diff review for files changed during a task
+- quick access to Claude slash commands
+- built-in `CLAUDE.md` editing
+- task-scoped snapshots before write operations
+- visual diff review and rollback
 
-## Current Scope
+## Who It Is For
 
-This MVP is designed for **local Claude Code usage on your own machine**.
+CC Studio is aimed at people who want to use Claude Code locally but do not want to start from a raw terminal workflow.
+
+Typical users:
+
+- beginners learning Claude Code
+- indie builders and vibe coders
+- product or design people crossing into coding
+- developers who want a more visual local workflow
+
+## Core Workflow
+
+1. Open a local project folder
+2. Start a Claude Code session inside the app
+3. Choose a guided task template or send your own prompt
+4. Review task-scoped file changes
+5. Roll back to the task baseline if needed
+
+## Highlights
+
+- **Local-first**: built for local Claude Code usage on your own machine
+- **Beginner-friendly**: common tasks are turned into guided forms instead of memorized commands
+- **Task-scoped rollback**: write tasks create a baseline snapshot before changes
+- **Visual review**: inspect changed files in a diff modal before deciding what to keep
+- **Project rules**: edit `CLAUDE.md` directly from the app
+
+## Scope
+
+Current scope:
 
 - Windows-first support
 - local folders only
-- no cloud sync
-- no team collaboration
-- no attempt to replace Claude Code itself
+- single-user workflow
+- Claude Code focused
 
-## Safety Model
+Not in scope right now:
 
-CC Studio does **not** inspect Claude Code's internal tool calls.
+- cloud sync
+- team collaboration
+- multi-agent orchestration
+- support for many coding agents at once
 
-Use Claude Code's built-in permission system for command safety.
-CC Studio's safety layer is focused on:
+## Safety
 
-- creating a pre-task snapshot before write operations
-- showing task-scoped file changes
-- rolling back files to the task baseline
+CC Studio does not try to replace Claude Code's own permission system.
 
-## Project Setup
+The app focuses on safer local iteration by:
+
+- creating a snapshot before write tasks
+- tracking task-scoped file changes
+- allowing rollback to the task baseline
+
+## Quick Start
 
 ### Install
 
@@ -39,13 +75,13 @@ CC Studio's safety layer is focused on:
 npm install
 ```
 
-### Development
+### Run in Development
 
 ```bash
 npm run dev
 ```
 
-### Verification
+### Verify
 
 ```bash
 npm run test:node
@@ -68,16 +104,6 @@ npm run build:linux
 - TypeScript
 - electron-vite
 - xterm.js
-
-## Status
-
-This is an early MVP. Expect rough edges, but the core workflow is already usable:
-
-1. Open a local project
-2. Start a Claude Code session
-3. Use a guided task template
-4. Review task-scoped file diffs
-5. Roll back to the task baseline if needed
 
 ## License
 
